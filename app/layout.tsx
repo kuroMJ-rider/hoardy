@@ -13,6 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://hoardy.vercel.app"
+  ),
   title: "Hoardy | 나를 연구하는 작은 인류학",
   description:
     "흩어진 지식을 소화하여 자산으로 만드는 당신의 세컨드 브레인.",

@@ -151,7 +151,7 @@ export async function digestLink(
     const meta = await extractMetadata(url);
     const result = await analyzeWithGemini(url, meta, drawers);
 
-    let finalDrawerId = existingDrawerId ?? result.drawer_id;
+    let finalDrawerId: string | null = existingDrawerId ?? result.drawer_id;
 
     if (!finalDrawerId && drawers.length > 0) {
       finalDrawerId = pickFallbackDrawerId(drawers);
