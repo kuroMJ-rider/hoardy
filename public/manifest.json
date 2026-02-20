@@ -1,0 +1,26 @@
+{
+  "name": "Hoardy",
+  "short_name": "Hoardy",
+  "description": "흩어진 지식을 소화하여 자산으로 만드는 당신의 세컨드 브레인.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#98ff98",
+  "icons": [
+    {
+      "src": "/hoardy_assets/hoardy_idle.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

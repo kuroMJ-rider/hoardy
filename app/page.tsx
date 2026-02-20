@@ -120,6 +120,16 @@ export default function Home() {
     []
   );
 
+  useEffect(() => {
+    if (!user && !isDev) return;
+    const params = new URLSearchParams(window.location.search);
+    const addUrl = params.get("add_url");
+    if (addUrl) {
+      window.history.replaceState({}, "", "/");
+      handleLinkSubmit(addUrl);
+    }
+  }, [user, handleLinkSubmit]);
+
   if (authLoading) {
     return (
       <main className="flex min-h-screen w-full items-center justify-center bg-zinc-950">
