@@ -8,21 +8,11 @@ import { HoardyCharacter, type HoardyState } from "@/components/hoardy-character
 import { LinkInput } from "@/components/link-input";
 import { SpeechBubble } from "@/components/speech-bubble";
 import { createClient } from "@/lib/supabase/client";
+import { getDisplayName } from "@/lib/utils/user";
 
 const isDev =
   process.env.NEXT_PUBLIC_HOARDY_DEV === "true" &&
   !!process.env.NEXT_PUBLIC_HOARDY_DEV_USER_ID;
-
-function getDisplayName(user: { user_metadata?: Record<string, unknown> }): string {
-  const m = user.user_metadata ?? {};
-  return (
-    (m.nickname as string) ??
-    (m.full_name as string) ??
-    (m.name as string) ??
-    (m.email as string) ??
-    ""
-  );
-}
 
 export default function Home() {
   const [authLoading, setAuthLoading] = useState(true);

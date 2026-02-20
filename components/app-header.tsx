@@ -3,24 +3,9 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { signOut as authSignOut } from "@/lib/auth";
+import { getDisplayName, getAvatarUrl } from "@/lib/utils/user";
 
 const LOGO_SRC = "/images/logo-color.png";
-
-function getDisplayName(user: { user_metadata?: Record<string, unknown> }): string {
-  const m = user.user_metadata ?? {};
-  return (
-    (m.nickname as string) ??
-    (m.full_name as string) ??
-    (m.name as string) ??
-    (m.email as string) ??
-    "유저"
-  );
-}
-
-function getAvatarUrl(user: { user_metadata?: Record<string, unknown> }): string | null {
-  const m = user.user_metadata ?? {};
-  return (m.avatar_url as string) ?? (m.picture as string) ?? null;
-}
 
 export function AppHeader({
   user,
@@ -41,7 +26,7 @@ export function AppHeader({
   }, []);
 
   const avatarUrl = user ? getAvatarUrl(user) : null;
-  const name = user ? getDisplayName(user) : "유저";
+  const name = user ? getDisplayName(user, "유저") : "유저";
 
   return (
     <header className="fixed left-0 right-0 top-0 z-40 border-b border-zinc-800/20 bg-transparent backdrop-blur-sm">

@@ -1,11 +1,11 @@
-export type PersonaType = 'ANTHROPOLOGIST' | 'OBSERVER' | 'ARTIST' | 'HUSTLER';
+type PersonaType = 'ANTHROPOLOGIST' | 'OBSERVER' | 'ARTIST' | 'HUSTLER';
 
 interface ReportMessage {
   text: string;
   subText: string;
 }
 
-export const REPORT_MESSAGES: Record<PersonaType, ReportMessage[]> = {
+const REPORT_MESSAGES: Record<PersonaType, ReportMessage[]> = {
   ANTHROPOLOGIST: [
     {
       text: "이번 주 당신의 궤적은 '데이터 인류학' 그 자체였어.",

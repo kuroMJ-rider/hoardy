@@ -1,33 +1,11 @@
-import { createClient, createServiceClient } from "@/lib/supabase/server";
+import { getApiAuth } from "@/lib/api-auth";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const isDev =
-    process.env.NEXT_PUBLIC_HOARDY_DEV === "true" &&
-    !!process.env.NEXT_PUBLIC_HOARDY_DEV_USER_ID;
-  const hasServiceKey = !!process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const auth = await getApiAuth();
+  if (!auth) return NextResponse.json({ archives: [] });
 
-  let supabase;
-  let userId: string | null = null;
-
-  try {
-    if (isDev) {
-      userId = process.env.NEXT_PUBLIC_HOARDY_DEV_USER_ID ?? null;
-      supabase = hasServiceKey
-        ? createServiceClient()
-        : await createClient();
-    } else {
-      supabase = await createClient();
-      const { data } = await supabase.auth.getUser();
-      userId = data.user?.id ?? null;
-    }
-  } catch {
-    return NextResponse.json({ archives: [] });
-  }
-
-  if (!userId) {
-    return NextResponse.json({ archives: [] });
-  }
+  const { supabase, userId } = auth;
 
   const { data, error } = await supabase
     .from("archives")

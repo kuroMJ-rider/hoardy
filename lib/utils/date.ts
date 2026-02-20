@@ -2,7 +2,7 @@
  * UTC ISO 문자열을 한국 시간(KST, UTC+9)으로 포맷
  * Supabase created_at 등 UTC 저장값 표시용
  */
-export function formatInKST(
+function formatInKST(
   utcIsoString: string | null | undefined,
   options?: Intl.DateTimeFormatOptions
 ): string {

@@ -62,12 +62,3 @@ body {
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
 }
-
-/* 칩 영역 가로 스크롤 시 스크롤바 숨김 */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
