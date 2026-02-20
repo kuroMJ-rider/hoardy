@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "Hoardy",
   "short_name": "Hoardy",
   "description": "흩어진 지식을 소화하여 자산으로 만드는 당신의 세컨드 브레인.",
@@ -9,18 +10,40 @@
   "icons": [
     {
       "src": "/hoardy_assets/hoardy_idle.png",
-      "sizes": "512x512",
+      "sizes": "1024x1024",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/hoardy_assets/hoardy_idle.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "share_target": {
     "action": "/share",
     "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
     "params": {
       "title": "title",
       "text": "text",
       "url": "url"
     }
-  }
+  },
+  "screenshots": [
+    {
+      "src": "/hoardy_assets/hoardy_idle.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Hoardy Desktop"
+    },
+    {
+      "src": "/hoardy_assets/hoardy_idle.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "label": "Hoardy Mobile"
+    }
+  ]
 }
