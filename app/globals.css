@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --hoardy-mint: #98ff98;
+  --hoardy-pink: #ff69b4;
 }
 
 @theme inline {
@@ -10,6 +12,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-mint: #98ff98;
+  --color-mint-dim: #6dd96d;
+  --color-pink: #ff69b4;
+  --color-hoardy-mint: #98ff98;
+  --color-hoardy-pink: #ff69b4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +26,48 @@
   }
 }
 
+html,
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+}
+
+/* 호디 링크 드롭 애니메이션 — 위에서 아래로, 페이드 아웃 */
+@keyframes link-drop {
+  0% {
+    transform: translate(-50%, -50px);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 120px);
+    opacity: 0;
+  }
+}
+
+.animate-link-drop {
+  animation: link-drop 600ms ease-out forwards;
+}
+
+/* 호디 말풍선 부드러운 바운스 */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* 칩 영역 가로 스크롤 시 스크롤바 숨김 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

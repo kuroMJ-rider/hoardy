@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 원본 디자인 소스 및 테스트 데이터 제외
+호디 로고/
+호디 캐릭터/
+확인용 csv/
